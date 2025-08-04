@@ -14,7 +14,7 @@
         body{
             display: flex;
             flex-direction: column;
-            background-color: rgb(161, 105, 0);
+            background-color: rgb(105, 161, 0);
             align-items: center;
         }
 
@@ -30,7 +30,7 @@
             width: 400px;
             display: flex;
             flex-direction: column;
-            align-items: self-start;
+            align-items: center;
             padding: 20px;
             box-shadow: 8px 3px 5px rgba(0, 0, 0, 0.507);
             
@@ -47,6 +47,7 @@
         input{
             width: 100px;
             margin-bottom: 10px;
+            align-self: center;
             
         }
 
@@ -71,22 +72,18 @@
 </head>
 <body>
     <header>
-        <h1>Contador</h1>
+        <h1>Tabuada</h1>
     </header>
     <main>
         <section>
             <div id="numeros">
-                <label for="inicio">Inicio:<input type="number" name="inicio" id="inicio" placeholder="Valor Inicial"></label>
-
-                <label for="fim">Fim:<input type="number" name="fim" id="fim" placeholder="Valor final"></label>
-
-                <label for="passo">Passo: <input type="number" name="passo" id="passo" placeholder="Padrão = 1"></label>
-
-                <input type="button" value="Contar" id="contar" onclick="Contar()">
+                <label for="numero">Numero: <input type="number" name="numero" id="numero"></label>
+                <input type="button" value="Gerar tabuada" id="botao" onclick="Gerar()">
             </div>
             
             <div id="resp">
-              <p>Iniciando contagem...</p>
+              <select name="tabuada" id="tabuada" size="10">
+              </select>
             </div>
         </section>
     </main>
