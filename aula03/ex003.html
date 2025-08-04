@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            background-color: darkolivegreen;
+            align-items: center;
+        }
+
+        header{
+            text-align: center;
+            color: white;
+            margin: 20px;
+            text-shadow: 4px 2px 1px rgba(0, 0, 0, 0.507);
+        }
+
+        section{
+            background-color: white;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 8px 3px 5px rgba(0, 0, 0, 0.507);
+            
+        }
+
+        div#horario{
+            text-align: center;
+            padding: 10px;
+        }
+
+        div#imagem{
+         flex: auto;
+        }
+
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            display: none;
+            padding: 15px;
+        }
+
+        div#bom{
+            padding: 10px;
+        }
+
+        footer{
+            color: white;
+            margin: 10px;
+            font-weight: lighter;
+            font-size: 0.8em;
+            text-shadow: 1.5px 1px 1px rgba(0, 0, 0, 0.507);
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hora do Dia</h1>
+    </header>
+    <main>
+        <section>
+            <div id="horario"></div>
+            <div id="imagem">
+            <img src="https://wallpapers.com/images/featured/imagens-da-manha-6fwm35u6hn5d43v9.jpg" alt="manha" id="manha">
+            <img src="https://img.freepik.com/fotos-premium/fim-da-tarde-natureza-paisagem-foto-de-um-rio-ao-por-do-sol_566982-137.jpg" alt="tarde" id="tarde">
+            <img src="https://img.freepik.com/vetores-premium/noite-linda-paisagem-do-ceu-na-floresta-com-lua-e-estrelas_104785-296.jpg" alt="noite" id="noite">
+            <img src="https://oeco.org.br/wp-content/uploads/oeco-migration/images/stories/mai2014/madrugada-beija-flor.jpg" alt="madrugada" id="madrugada">
+            </div>
+            <div id="bom">
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Guilherme Gama</p>
+    </footer>
+    <script>
+        var body = document.body;
+        //escreve bom 'dia/tarde/noite'
+        var escrevebom = window.document.getElementById('bom')
+        //escreve o horario atual
+        var escrevehora = window.document.
+        getElementById('horario');
+
+        var agora = new Date();
+
+        var hora = agora.getHours();
+
+        if (hora > 1){
+            escrevehora.innerHTML = `Agora são ${hora} horas`;
+        } else {
+            escrevehora.innerHTML = `Agora é ${hora} hora`;
+        }
+        //mostra a imagem de acordo com o horario
+        var imgManha = document.getElementById('manha');
+        var imgTarde = document.getElementById('tarde');
+        var imgNoite = document.getElementById('noite');
+        var imgMadrugada = document.getElementById('madrugada');
+
+        if (hora >= 6 && hora < 12) {
+            imgManha.style.display = 'block';
+            escrevebom.innerHTML = 'Bom dia!';
+            body.style.backgroundColor = '#FFF176'; // amarelo claro
+        } else if (hora >= 12 && hora < 18) {
+            imgTarde.style.display = 'block';
+            escrevebom.innerHTML = 'Boa tarde!';
+            body.style.backgroundColor = '#FFA500'; // laranja
+        } else if (hora >= 18 && hora < 24) {
+            imgNoite.style.display = 'block';
+            escrevebom.innerHTML = 'Boa noite!';
+            body.style.backgroundColor = '#191970'; // azul escuro
+        } else {
+            imgMadrugada.style.display = 'block';
+            escrevebom.innerHTML = 'Boa madrugada!';
+            body.style.backgroundColor = '#2F4F4F'; // cinza escuro
+        }
+
+    </script>
+</body>
+</html>

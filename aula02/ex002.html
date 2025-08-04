@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran simulação</title>
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        header{
+            background-color: black;
+            color: white;
+            font-size: 0.5em;
+            text-align: center;
+        }
+
+        img{
+            width: 280px;
+            margin-bottom: 10px;
+        }
+
+        main{
+            display: flex;
+            width: 100vw;
+            height: 90vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        div#dados{
+            display: flex;
+            flex-direction: column;
+            background-color: yellow;
+            color: black;
+            font-weight: bolder;
+            width: 300px;
+            padding: 10px;
+        }
+
+        div#dados > input#placa,input#ipva{
+            width:70px;
+            align-self: self-start;
+        }
+
+        div#dados > input#placa,input#ipva:empty{
+            background-color: wheat;
+        }
+
+        input#proseguir{
+            width: 70px;
+        }
+
+        input#proseguir:hover{
+            background-color: black;
+            color: white;
+        }
+
+        div#resp{
+            background-color: black;
+            color: white;
+            width: 300px;
+            padding: 10px;
+        }
+        
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Site Ficticio apenas para aprendizagem de codigo</h1>
+    </header>
+    <main>
+        <img src="detran-sp-logo-1.png" alt="">
+        <div id="dados">
+            <p>Informe a placa de seu veiculo <small>(ficticio)</small></p>
+            <input type="text" id="placa">
+            <p>Já pagou ipva de 2025?</p>
+            <input type="text" id="ipva">
+            <input type="button" value="proseguir" id="proseguir" onclick="proseguir()">
+        </div>
+        <div id="resp">
+
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+        function proseguir() {
+            console.log('proseguir')
+            var resp = window.document.getElementById('resp');
+            var placa = window.document.getElementById('placa').value.trim().toUpperCase();
+            var ipva = window.document.getElementById('ipva').value.trim().toUpperCase();
+
+
+                
+            if (placa === '') {
+                    resp.innerHTML = `⚠️ Insira uma placa.`;
+                    return;
+                }
+
+            resp.innerHTML = `Veículo com placa <strong>${placa}</strong> foi encontrado no sistema.<br>`;
+
+           
+
+            
+
+            if (ipva === 'SIM'){
+                resp.innerHTML += `voce não possui pendencias`
+            } else if (ipva === 'NAO' || ipva === 'NÃO') {
+                resp.innerHTML += `voce possui pendencias entre em contato com o polo mais proximo`
+            } else {
+                resp.innerHTML += `insira uma resposta valida (sim ou não) sobre o ipva`
+            }
+        }
+    </script>
+</body>
+</html>
